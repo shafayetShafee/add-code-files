@@ -6,6 +6,8 @@ This extension provides Filter to include code from source files.
 
 ## Installing
 
+:warning: This extension requires quarto version at least to be 1.2.
+
 ```bash
 quarto add shafayetShafe/include-code-files
 ```
@@ -56,7 +58,7 @@ You can also use the following options,
 
 ````
 
-
+See below examples for details.
 
 
 ## Example
