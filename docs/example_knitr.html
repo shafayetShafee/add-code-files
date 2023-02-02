@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 <meta name="author" content="Shafayet Khan Shafee">
-<meta name="dcterms.date" content="2023-02-02">
+<meta name="dcterms.date" content="2023-02-03">
 
 <title>Include Code Files</title>
 <style>
@@ -127,7 +127,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
     <div>
     <div class="quarto-title-meta-heading">Published</div>
     <div class="quarto-title-meta-contents">
-      <p class="date">February 2, 2023</p>
+      <p class="date">February 3, 2023</p>
     </div>
   </div>
   
@@ -140,10 +140,10 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <blockquote class="blockquote">
 <p>Note that, If you are rendering the quarto document using jupyter use {python} chunk to include code and on the other hand if you are rendering the quarto document using knitr (i.e.&nbsp;engine: knitr) then use {r} chunk to include code, Or to avoid thinking about rendering engine, jupyter or knitr, you also can follow pandoc Div approach described below.</p>
 </blockquote>
-<section id="add-code-from" class="level2">
-<h2 class="anchored" data-anchor-id="add-code-from"><code>add-code-from</code></h2>
-<p>You can include code from a file using <code>add-code-from</code> chunk option. And while using knitr for rendering the quarto document, use <code>r</code> chunk, even though you are adding contents of different language other than R and to enable syntax highlighting correctly, use chunk option <code>source-lang</code>. (You can run <code>quarto pandoc --list-highlight-languages</code> to know for which languages, syntax highlighting is supported and use one of those in <code>source-lang</code> accordingly)</p>
-<div class="cell" data-add-code-from="test/snippets/capitalize.m" data-source-lang="matlab">
+<section id="include-from" class="level2">
+<h2 class="anchored" data-anchor-id="include-from"><code>include-from</code></h2>
+<p>You can include code from a file using <code>include-from</code> chunk option. And while using knitr for rendering the quarto document, use <code>r</code> chunk, even though you are adding contents of different language other than R and to enable syntax highlighting correctly, use chunk option <code>source-lang</code>. (You can run <code>quarto pandoc --list-highlight-languages</code> to know for which languages, syntax highlighting is supported and use one of those in <code>source-lang</code> accordingly)</p>
+<div class="cell" data-include-from="test/snippets/capitalize.m" data-source-lang="matlab">
 <details>
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode matlab code-with-copy"><code class="sourceCode matlab"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="kw">function</span> <span class="va">capString</span> <span class="op">=</span> <span class="va">capitalize</span>(<span class="va">string</span>)</span>
@@ -165,7 +165,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <section id="start-line-end-line" class="level2">
 <h2 class="anchored" data-anchor-id="start-line-end-line"><code>start-line</code> &amp; <code>end-line</code></h2>
 <p>You can specify from which line to which line you want to include,</p>
-<div class="cell" data-add-code-from="test/snippets/capitalize.ts" data-source-lang="typescript" data-start-line="1" data-end-line="4">
+<div class="cell" data-include-from="test/snippets/capitalize.ts" data-source-lang="typescript" data-start-line="1" data-end-line="4">
 <details>
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb2" data-startfrom="1"><pre class="sourceCode numberSource typescript number-lines code-with-copy"><code class="sourceCode typescript"><span id="cb2-1"><a href="#cb2-1"></a><span class="co">// typescript</span></span>
@@ -183,7 +183,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <section id="dont-want-to-use-source-lang" class="level2">
 <h2 class="anchored" data-anchor-id="dont-want-to-use-source-lang">Don’t want to use <code>source-lang</code></h2>
 <p>If you <strong>do not</strong> want to use <code>r</code> chunk (i.e.&nbsp;```<code>{r}</code>) to include content from files and <strong>do not</strong> want to use <code>source-lang</code> option also, you can do the following,</p>
-<div data-add-code-from="test/snippets/capitalize.php" data-start-line="1" data-end-line="17" data-code-line-numbers="true">
+<div data-include-from="test/snippets/capitalize.php" data-start-line="1" data-end-line="17" data-code-line-numbers="true">
 <details>
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb3" data-startfrom="1"><pre class="sourceCode numberSource php number-lines code-with-copy"><code class="sourceCode php"><span id="cb3-1"><a href="#cb3-1"></a><span class="kw">&lt;?php</span></span>
@@ -201,8 +201,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </section>
 <section id="filename" class="level2">
 <h2 class="anchored" data-anchor-id="filename">filename</h2>
-<p>We can use <code>filename</code> either within a r chunk or in pandoc div with <code>add-code-from</code> attribute to include a code filename.</p>
-<div class="cell" data-add-code-from="test/snippets/fizz-buzz.rs" data-source-lang="rust" data-filename="fizz-buzz.rs">
+<p>We can use <code>filename</code> either within a r chunk or in pandoc div with <code>include-from</code> attribute to include a code filename.</p>
+<div class="cell" data-include-from="test/snippets/fizz-buzz.rs" data-source-lang="rust" data-filename="fizz-buzz.rs">
 <div class="code-with-filename">
 <div class="code-with-filename-file">
 <pre><strong>fizz-buzz.rs</strong></pre>
@@ -222,7 +222,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb4-13"><a href="#cb4-13"></a><span class="op">}</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </div>
-<div data-add-code-from="test/snippets/fizz-buzz.jl" data-code-line-numbers="true" data-filename="fizz-buzz.jl">
+<div data-include-from="test/snippets/fizz-buzz.jl" data-code-line-numbers="true" data-filename="fizz-buzz.jl">
 <div class="code-with-filename">
 <div class="code-with-filename-file">
 <pre><strong>fizz-buzz.jl</strong></pre>
