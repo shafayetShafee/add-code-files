@@ -27,7 +27,6 @@ title: "Quarto"
 filters:
    - include-code-files
 ---
-
 ```
 
 ### Including Files
@@ -49,14 +48,18 @@ You can also use the following options,
 - **`code-line-numbers`**: To enable source code line numbering.
 - **dedent**: using this you can have whitespaces removed on each line, where possible (non-whitespace character will not be removed even if they occur in the dedent area).
 
-
 ````
 ::: {include-from=hello-world.cpp start-line=1 end-line=8 code-line-numbers="true"}
 ```{.cpp}
 ```
 :::
-
 ````
+
+View the live demo of
+
+- [document rendered with `jupyter`](https://shafayetshafee.github.io/include-code-files/example.html)
+
+- [document rendered with `knitr`](https://shafayetshafee.github.io/include-code-files/example_knitr.html)
 
 ### filename and code-filename
 
@@ -66,7 +69,5 @@ Therefore, use `code-filename` only when using `code-fold: true`, otherwise use 
 
 **`code-filename` only works with `code-folding`. For othercases, use `filename`**
 
-View a [live demo of `code-filename`](https://shafayetshafee.github.io/include-code-files/example_filename.html)
+View a [live demo of this issue](https://shafayetshafee.github.io/include-code-files/example_filename.html)
 
-## Example
-See the source code [example.qmd](example.qmd) and its [output](https://shafayetshafee.github.io/include-code-files/example.html) and also see [example_knitr.qmd](example_knitr.qmd) and its [output](https://shafayetshafee.github.io/include-code-files/example_knitr.html)
