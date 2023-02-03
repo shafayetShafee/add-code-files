@@ -1,5 +1,17 @@
 local str = pandoc.utils.stringify
 
+local function ensureHtmlDeps()
+  quarto.doc.add_html_dependency({
+  name = "include-code-files",
+  version = "1.0.0",
+  scripts = {
+    { path = "resources/js/include-code-files.js", afterBody = true}
+  },
+  stylesheets = {"resources/css/include-code-files.css"}
+})
+end
+
+
 -- remove the nth line 
 local function dedent (line, n)
   return line:sub(1,n):gsub(" ","") .. line:sub(n+1)
@@ -8,7 +20,7 @@ end
 -- function for reading the content of included file and including the 
 -- content
 local function source_include(filepath, startLine, endLine, dedentLine, lang, filename, 
-  line_number)
+  line_number, code_filename)
   local add_source = {
     CodeBlock = function(cb)
       local content = ""
@@ -39,7 +51,7 @@ local function source_include(filepath, startLine, endLine, dedentLine, lang, fi
         else
           cb.classes:insert('cell-code')
         end
-        if filename then
+        if filename and not code_filename then
           cb.attributes.filename = filename
         end
         if line_number then
@@ -52,6 +64,7 @@ local function source_include(filepath, startLine, endLine, dedentLine, lang, fi
   return add_source
 end
 
+
 -- gets the necessary chunk option and apply the source_include function with
 -- these.
 function Div(el)
@@ -63,8 +76,12 @@ function Div(el)
     local lang = el.attributes['source-lang']
     local filename = el.attributes['filename']
     local line_number = el.attributes['code-line-numbers']
+    local code_filename = el.attributes['code-filename']
+    if code_filename then
+      ensureHtmlDeps()
+    end
     local div = el:walk(source_include(filepath, startLine, endLine, 
-      dedent_line, lang, filename, line_number))
+      dedent_line, lang, filename, line_number, code_filename))
     return div
   end
 end
