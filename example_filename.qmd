@@ -1,0 +1,41 @@
+---
+title: "Include Code Files"
+author: Shafayet Khan Shafee
+date: last-modified
+format: 
+  html:
+    code-fold: true
+    code-tools: true
+engine: knitr
+filters:
+  - include-code-files
+---
+
+> Note: View the source code of this document by clicking `</> Code` on top-right corner.
+
+## `filename`
+
+Using `filename` does not align properly with `code-folding`.
+
+::: {include-from=test/snippets/fizz-buzz.rs code-line-numbers="true" filename="fizz-buzz.rs"}
+
+```{.rust}
+```
+
+:::
+
+
+## `code-filename`
+
+Instead we can use `code-filename` attribute.
+
+::: {include-from=test/snippets/fizz-buzz.jl code-line-numbers="true" code-filename=fizz-buzz.jl}
+
+```{.julia}
+```
+
+:::
+
+<hr>
+
+**Therefore, use `code-filename` only when using `code-fold: true`, otherwise use `filename` (for non HTML format or for html format without `code-fold: true`).**
