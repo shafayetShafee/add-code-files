@@ -77,8 +77,16 @@ function Div(el)
     local filename = el.attributes['filename']
     local line_number = el.attributes['code-line-numbers']
     local code_filename = el.attributes['code-filename']
-    if code_filename then
-      ensureHtmlDeps()
+    if quarto.doc.is_format("html") then
+      if code_filename then
+        ensureHtmlDeps()
+      end
+    end
+    if quarto.doc.is_format('pdf') then
+      if not filename then
+        filename = code_filename
+        code_filename = nil
+      end
     end
     local div = el:walk(source_include(filepath, startLine, endLine, 
       dedent_line, lang, filename, line_number, code_filename))

@@ -1,6 +1,6 @@
 # Include Code Files Extension For Quarto
 
-This extension provides Filter to include code from source files.
+This extension provides filter that to include code from source files.
 
 :information_source: This filter extends the [include-code-files](https://github.com/quarto-ext/include-code-files) by [@quarto-ext](https://github.com/quarto-ext) with [`code-fold`](https://quarto.org/docs/output-formats/html-code.html#folding-code)-ing capability. If you just want to include contents from another file and do not care about code-folding you probably want to use the former filter, which is simpler to use.
 
@@ -17,7 +17,7 @@ If you're using version control, you will want to check in this directory.
 
 ## Usage
 
-The filter recognizes [Divs](https://quarto.org/docs/authoring/markdown-basics.html#divs-and-spans) or code-chunk[^1] with the `include-from` attribute present. It swaps the content of the code block with contents from a file.
+The filter recognizes [Divs](https://quarto.org/docs/authoring/markdown-basics.html#divs-and-spans) or code-chunk with the `include-from` attribute present. It swaps the content of the code block with contents from a file.
 
 Here is how you add the filter to a quarto document,
 
@@ -41,7 +41,7 @@ Once adding the filter to the quarto document, use the `include-from` attribute 
 :::
 ````
 
-would include the codes from `hello-world.cpp` within that `.cpp` code chunk. And you need to use `.cpp` to get correct syntax highlighting for added c++ code. Run `quarto pandoc --list-highlight-languages` to get the list of languages for which syntax highlighting is supported.
+would include the codes from `hello-world.cpp` within that `.cpp` code block. And you need to use `.cpp` to get correct syntax highlighting for added c++ code. Run `quarto pandoc --list-highlight-languages` to get the list of languages for which syntax highlighting is supported.
 
 You can also use the following options,
 
@@ -58,8 +58,15 @@ You can also use the following options,
 
 ````
 
-See below examples for details.
+### filename and code-filename
 
+You can also use the `filename` attribute to show a name of the file the included code is associated with. But the issue is, the attribute `filename` does not work with `code-folding` as intended for that code block. This filter provides another option `code-filename` which works with `code-folding`.
+
+Therefore, use `code-filename` only when using `code-fold: true`, otherwise use `filename` (for non HTML format or for html format without `code-fold: true`)
+
+**`code-filename` only works with `code-folding`. For othercases, use `filename`**
+
+View a [live demo of `code-filename`](https://shafayetshafee.github.io/include-code-files/example_filename.html)
 
 ## Example
 See the source code [example.qmd](example.qmd) and its [output](https://shafayetshafee.github.io/include-code-files/example.html) and also see [example_knitr.qmd](example_knitr.qmd) and its [output](https://shafayetshafee.github.io/include-code-files/example_knitr.html)

@@ -5,6 +5,7 @@ date: last-modified
 format:
   html: 
     code-fold: true
+    code-tools: true
 jupyter: python3
 filters:
   - include-code-files
@@ -12,17 +13,77 @@ execute:
   echo: true
 ---
 
+> DISCLAIMER: The main focus of this extension is to enable `code-folding` for code chunk with included content from external files. `Show all code`, `Hide all code` from `code-tools` still would not work.
 
-> Note that, If you are rendering the quarto document using jupyter use {python} chunk to include code and on the other hand if you are rendering the quarto document using knitr (i.e. engine: knitr) then use {r} chunk to include code, Or to avoid thinking about rendering engine, jupyter or knitr, you also can follow pandoc Div approach described below.
+> Note: View the source code of this document by clicking `</> Code` on top-right corner.
 
+You can include content from external file using either Pandoc Divs `:::` (easier) or using code chunk.
+
+
+## Using Pandoc Divs
+
+### `include-from`
+
+To include codes using pandoc divs, use the `include-from` attribute to denote the path of the external file, relative to this qmd file. And within that Div, use a codeblock along with the name of the language of the content to be included to get correct syntax highlighting. (You can run `quarto pandoc --list-highlight-languages` to know for which languages, syntax highlighting is supported).
+
+
+::: {include-from=test/snippets/capitalize.lua}
+
+```{.lua}
+```
+
+:::
+
+You can also pass options `start-line`, `end-line` to include a specific range of lines, `code-line-numbers` to enable source code line numbering, `code-filename` or `filename` to show a name of the file the included code is associated with.
+
+
+### `start-line` & `end-line`
+
+::: {include-from=test/snippets/capitalize.sh start-line=2 end-line=7 code-line-numbers=true}
+
+```{.bash}
+```
+
+:::
+
+Note that, we have used `code-line-numbers: true` to add line numbers in code chunk.
+
+Also We can change the text `Code` to something nicer using `code-filename`.
+
+
+## `filename` and `code-filename`
+
+Using `filename` does not align properly with `code-folding`. Instead use `code-filename` when using `code-fold: true`.
+
+
+::: {include-from=test/snippets/capitalize.pl code-line-numbers="true" code-filename=capitalize.perl}
+
+```{.perl}
+```
+
+:::
+
+**`code-filename` only works with `code-folding`. For othercases, use `filename`**
+
+
+## Using Code chunk
+
+Now there is a way to use code chunk instead of pandoc divs to include contents from external file. But there are two things to **note**,
+
+- Since Quarto so far uses two types rendering engine, `knitr` and `jupyter`, we need to use code chunk accordingly.If you are rendering the quarto document using jupyter along with python kernel use {python} chunk to include code, similary if you are using julia kernel, you need to use {julia} and on the other hand if you are rendering the quarto document using knitr (i.e. engine: knitr) then use {r} chunk to include code, Or to avoid thinking about rendering engine, jupyter or knitr, you also can follow pandoc Div approach described above.
+
+- You also need to use a chunk option `source-lang` to give the name of the language of the content to be included to get correct syntax highlighting.
+
+
+> Note: View the source code of this document by clicking `</> Code` on top-right corner to see how code chunk is used.
 
 ## `include-from`
 
-You can include code from a file using `include-from` chunk option. And while using jupyter for rendering the quarto document, use `python` chunk, even though you are adding contents of different language other than python and to enable syntax highlighting correctly, use chunk option `source-lang`. (You can run `quarto pandoc --list-highlight-languages` to know for which languages, syntax highlighting is supported and use one of those in `source-lang` accordingly)
 
 ```{python}
 #| include-from: test/snippets/example.yml
 #| source-lang: yml
+#| code-filename: "Code snippet: example.yml"
 
 # comment
 ```
@@ -35,57 +96,26 @@ You can specify from which line to which line you want to include,
 
 
 ```{python}
-#| include-from: test/snippets/capitalize.sh
-#| source-lang: bash
-#| start-line: 2
-#| end-line: 7
+#| include-from: test/snippets/capitalize.scala
+#| source-lang: scala
+#| start-line: 1
+#| end-line: 17
 #| code-line-numbers: true
+#| code-filename: capitalize.scala
 
 # comment
 ```
 
-Note that, we have used `code-line-numbers: true` to add line numbers in code chunk.
+Note that, we have used `code-filename: capitalize.scala` to add the filename.
 
-## `dedent`
-
-You can specify a line number for which whitespaces will be removed using the `dedent` option.
-
-
-## Don't want to use `source-lang`
-
-If you **do not** want to use `python` chunk (i.e. ````{python}`) to include content from files and **do not** want to use `source-lang` option also, you can do the following,
-
-::: {include-from=test/snippets/capitalize.scala start-line=1 end-line=17 code-line-numbers="true"}
-
-```{.scala}
-```
-
-:::
-
-Here we have defined all the chunk option for a pandoc div (i.e. `:::`) and used a scala chunk to add code from `capitalize.scala`.
-
-
-## filename
-
-We can use `filename` either within a python chunk or in pandoc div with `include-from` attribute to include a code filename.
-
+## `code-filename`
 
 ```{python}
 #| include-from: test/snippets/capitalize.js
 #| source-lang: javascript
 #| code-line-numbers: true
-#| filename: capitalize.js
+#| code-filename: capitalize.js
 
 # comment
 ```
 
-
-::: {include-from=test/snippets/capitalize.lua code-line-numbers="true" filename=capitalize.lua}
-
-```{.lua}
-```
-
-:::
-
-
-**Note that, `code-fold`-ing does not work when a filename is specified.**
