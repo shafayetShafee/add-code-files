@@ -2,7 +2,7 @@
 
 This extension provides filter that to include code from source files.
 
-:information_source: This filter extends the [include-code-files](https://github.com/quarto-ext/include-code-files) by [@quarto-ext](https://github.com/quarto-ext) with [`code-fold`](https://quarto.org/docs/output-formats/html-code.html#folding-code)-ing capability. If you just want to include contents from another file and do not care about code-folding you probably want to use the former filter, which is simpler to use.
+:information_source: This filter is an alternative to the [include-code-files](https://github.com/quarto-ext/include-code-files) by [@quarto-ext](https://github.com/quarto-ext) with [`code-fold`](https://quarto.org/docs/output-formats/html-code.html#folding-code)-ing capability. If you just want to include contents from another file and do not care about code-folding you probably want to use the former filter, which is simpler to use.
 
 ## Installing
 
