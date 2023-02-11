@@ -2,12 +2,12 @@ local str = pandoc.utils.stringify
 
 local function ensureHtmlDeps()
   quarto.doc.add_html_dependency({
-  name = "include-code-files",
+  name = "add-code-files",
   version = "1.0.0",
   scripts = {
-    { path = "resources/js/include-code-files.js", afterBody = true}
+    { path = "resources/js/add-code-files.js", afterBody = true}
   },
-  stylesheets = {"resources/css/include-code-files.css"}
+  stylesheets = {"resources/css/add-code-files.css"}
 })
 end
 
@@ -68,8 +68,8 @@ end
 -- gets the necessary chunk option and apply the source_include function with
 -- these.
 function Div(el)
-  if el.attributes['include-from'] then
-    local filepath = str(el.attributes['include-from'])
+  if el.attributes['add-from'] then
+    local filepath = str(el.attributes['add-from'])
     local startLine = el.attributes['start-line']
     local endLine = el.attributes['end-line']
     local dedent_line = el.attributes.dedent

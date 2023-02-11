@@ -7,9 +7,9 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 <meta name="author" content="Shafayet Khan Shafee">
-<meta name="dcterms.date" content="2023-02-04">
+<meta name="dcterms.date" content="2023-02-11">
 
-<title>Include Code Files</title>
+<title>Add Code Files</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -98,7 +98,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <script src="example_files/libs/bootstrap/bootstrap.min.js"></script>
 <link href="example_files/libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
 <link href="example_files/libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
-<link href="example_files/libs/quarto-contrib/include-code-files-1.0.0/include-code-files.css" rel="stylesheet">
+<link href="example_files/libs/quarto-contrib/add-code-files-1.0.0/add-code-files.css" rel="stylesheet">
 
 
 </head>
@@ -111,7 +111,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<div class="quarto-title-block"><div><h1 class="title">Include Code Files</h1><button type="button" class="btn code-tools-button dropdown-toggle" id="quarto-code-tools-menu" data-bs-toggle="dropdown" aria-expanded="false"><i class="bi"></i> Code</button><ul class="dropdown-menu dropdown-menu-end" aria-labelelledby="quarto-code-tools-menu"><li><a id="quarto-show-all-code" class="dropdown-item" href="javascript:void(0)" role="button">Show All Code</a></li><li><a id="quarto-hide-all-code" class="dropdown-item" href="javascript:void(0)" role="button">Hide All Code</a></li><li><hr class="dropdown-divider"></li><li><a id="quarto-view-source" class="dropdown-item" href="javascript:void(0)" role="button">View Source</a></li></ul></div></div>
+<div class="quarto-title-block"><div><h1 class="title">Add Code Files</h1><button type="button" class="btn code-tools-button dropdown-toggle" id="quarto-code-tools-menu" data-bs-toggle="dropdown" aria-expanded="false"><i class="bi"></i> Code</button><ul class="dropdown-menu dropdown-menu-end" aria-labelelledby="quarto-code-tools-menu"><li><a id="quarto-show-all-code" class="dropdown-item" href="javascript:void(0)" role="button">Show All Code</a></li><li><a id="quarto-hide-all-code" class="dropdown-item" href="javascript:void(0)" role="button">Hide All Code</a></li><li><hr class="dropdown-divider"></li><li><a id="quarto-view-source" class="dropdown-item" href="javascript:void(0)" role="button">View Source</a></li></ul></div></div>
 </div>
 
 
@@ -128,7 +128,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
     <div>
     <div class="quarto-title-meta-heading">Published</div>
     <div class="quarto-title-meta-contents">
-      <p class="date">February 4, 2023</p>
+      <p class="date">February 11, 2023</p>
     </div>
   </div>
   
@@ -139,18 +139,18 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </header>
 
 <blockquote class="blockquote">
-<p>DISCLAIMER: The main focus of this extension is to enable <code>code-folding</code> for code chunk with included content from external files. <code>Show all code</code>, <code>Hide all code</code> from <code>code-tools</code> still would not work.</p>
+<p>DISCLAIMER: The main focus of this extension is to enable <code>code-folding</code> for code chunk with added content from external files. <code>Show all code</code>, <code>Hide all code</code> from <code>code-tools</code> still would not work.</p>
 </blockquote>
 <blockquote class="blockquote">
 <p>Note: View the source code of this document by clicking <code>&lt;/&gt; Code</code> on top-right corner.</p>
 </blockquote>
-<p>You can include content from external file using either Pandoc Divs <code>:::</code> (easier) or using code chunk.</p>
+<p>You can add content from external file using either Pandoc Divs <code>:::</code> (easier) or using code chunk.</p>
 <section id="using-pandoc-divs" class="level2">
 <h2 class="anchored" data-anchor-id="using-pandoc-divs">Using Pandoc Divs</h2>
-<section id="include-from" class="level3">
-<h3 class="anchored" data-anchor-id="include-from"><code>include-from</code></h3>
-<p>To include codes using pandoc divs, use the <code>include-from</code> attribute to denote the path of the external file, relative to this qmd file. And within that Div, use a codeblock along with the name of the language of the content to be included to get correct syntax highlighting. (You can run <code>quarto pandoc --list-highlight-languages</code> to know for which languages, syntax highlighting is supported).</p>
-<div data-include-from="test/snippets/capitalize.lua">
+<section id="add-from" class="level3">
+<h3 class="anchored" data-anchor-id="add-from"><code>add-from</code></h3>
+<p>To add codes using pandoc divs, use the <code>add-from</code> attribute to denote the path of the external file, relative to this qmd file. And within that Div, use a codeblock along with the name of the language of the content to be added to get correct syntax highlighting. (You can run <code>quarto pandoc --list-highlight-languages</code> to know for which languages, syntax highlighting is supported).</p>
+<div data-add-from="test/snippets/capitalize.lua">
 <details>
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode lua code-with-copy"><code class="sourceCode lua"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> <span class="op">(#</span>arg <span class="op">&lt;</span> <span class="dv">1</span> <span class="kw">or</span> arg<span class="op">[</span><span class="dv">1</span><span class="op">]</span> <span class="op">==</span> <span class="st">''</span><span class="op">)</span></span>
@@ -167,11 +167,11 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a><span class="cf">end</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 </div>
-<p>You can also pass options <code>start-line</code>, <code>end-line</code> to include a specific range of lines, <code>code-line-numbers</code> to enable source code line numbering, <code>code-filename</code> or <code>filename</code> to show a name of the file the included code is associated with.</p>
+<p>You can also pass options <code>start-line</code>, <code>end-line</code> to add a specific range of lines, <code>code-line-numbers</code> to enable source code line numbering, <code>code-filename</code> or <code>filename</code> to show a name of the file the added code is associated with.</p>
 </section>
 <section id="start-line-end-line" class="level3">
 <h3 class="anchored" data-anchor-id="start-line-end-line"><code>start-line</code> &amp; <code>end-line</code></h3>
-<div data-include-from="test/snippets/capitalize.sh" data-start-line="2" data-end-line="7" data-code-line-numbers="true">
+<div data-add-from="test/snippets/capitalize.sh" data-start-line="2" data-end-line="7" data-code-line-numbers="true">
 <details>
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb2" data-startfrom="2"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash" style="counter-reset: source-line 1;"><span id="cb2-2"><a href="#cb2-2"></a><span class="co">#!/bin/bash</span></span>
@@ -189,7 +189,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <section id="filename-and-code-filename" class="level2">
 <h2 class="anchored" data-anchor-id="filename-and-code-filename"><code>filename</code> and <code>code-filename</code></h2>
 <p>Using <code>filename</code> does not align properly with <code>code-folding</code>. Instead use <code>code-filename</code> when using <code>code-fold: true</code>.</p>
-<div data-include-from="test/snippets/capitalize.pl" data-code-line-numbers="true" data-code-filename="capitalize.perl">
+<div data-add-from="test/snippets/capitalize.pl" data-code-line-numbers="true" data-code-filename="capitalize.perl">
 <details>
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource perl number-lines code-with-copy"><code class="sourceCode perl"><span id="cb3-1"><a href="#cb3-1"></a><span class="kw">#!/usr/bin/env perl</span></span>
@@ -211,18 +211,18 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </section>
 <section id="using-code-chunk" class="level2">
 <h2 class="anchored" data-anchor-id="using-code-chunk">Using Code chunk</h2>
-<p>Now there is a way to use code chunk instead of pandoc divs to include contents from external file. But there are two things to <strong>note</strong>,</p>
+<p>Now there is a way to use code chunk instead of pandoc divs to add contents from external file. But there are two things to <strong>note</strong>,</p>
 <ul>
-<li><p>Since Quarto so far uses two types rendering engine, <code>knitr</code> and <code>jupyter</code>, we need to use code chunk accordingly.If you are rendering the quarto document using jupyter along with python kernel use {python} chunk to include code, similary if you are using julia kernel, you need to use {julia} and on the other hand if you are rendering the quarto document using knitr (i.e.&nbsp;engine: knitr) then use {r} chunk to include code, Or to avoid thinking about rendering engine, jupyter or knitr, you also can follow pandoc Div approach described above.</p></li>
-<li><p>You also need to use a chunk option <code>source-lang</code> to give the name of the language of the content to be included to get correct syntax highlighting.</p></li>
+<li><p>Since Quarto so far uses two types rendering engine, <code>knitr</code> and <code>jupyter</code>, we need to use code chunk accordingly.If you are rendering the quarto document using jupyter along with python kernel use {python} chunk to add code, similary if you are using julia kernel, you need to use {julia} and on the other hand if you are rendering the quarto document using knitr (i.e.&nbsp;engine: knitr) then use {r} chunk to add code, Or to avoid thinking about rendering engine, jupyter or knitr, you also can follow pandoc Div approach described above.</p></li>
+<li><p>You also need to use a chunk option <code>source-lang</code> to give the name of the language of the content to be added to get correct syntax highlighting.</p></li>
 </ul>
 <blockquote class="blockquote">
 <p>Note: View the source code of this document by clicking <code>&lt;/&gt; Code</code> on top-right corner to see how code chunk is used.</p>
 </blockquote>
 </section>
-<section id="include-from-1" class="level2">
-<h2 class="anchored" data-anchor-id="include-from-1"><code>include-from</code></h2>
-<div class="cell" data-code-filename="Code snippet: example.yml" data-include-from="test/snippets/example.yml" data-source-lang="yml" data-execution_count="1">
+<section id="add-from-1" class="level2">
+<h2 class="anchored" data-anchor-id="add-from-1"><code>add-from</code></h2>
+<div class="cell" data-add-from="test/snippets/example.yml" data-code-filename="Code snippet: example.yml" data-source-lang="yml" data-execution_count="1">
 <details>
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb4"><pre class="sourceCode yml code-with-copy"><code class="sourceCode yaml"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">yaml-file</span><span class="kw">:</span></span>
@@ -234,8 +234,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </section>
 <section id="start-line-end-line-1" class="level2">
 <h2 class="anchored" data-anchor-id="start-line-end-line-1"><code>start-line</code> &amp; <code>end-line</code></h2>
-<p>You can specify from which line to which line you want to include,</p>
-<div class="cell" data-code-filename="capitalize.scala" data-end-line="17" data-include-from="test/snippets/capitalize.scala" data-source-lang="scala" data-start-line="1" data-execution_count="2">
+<p>You can specify from which line to which line you want to add,</p>
+<div class="cell" data-add-from="test/snippets/capitalize.scala" data-code-filename="capitalize.scala" data-end-line="17" data-source-lang="scala" data-start-line="1" data-execution_count="2">
 <details>
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb5" data-startfrom="1"><pre class="sourceCode numberSource scala number-lines code-with-copy"><code class="sourceCode scala"><span id="cb5-1"><a href="#cb5-1"></a><span class="kw">import</span> scala<span class="op">.</span>io<span class="op">.</span>StdIn<span class="op">.</span>readLine</span>
@@ -261,7 +261,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </section>
 <section id="code-filename" class="level2">
 <h2 class="anchored" data-anchor-id="code-filename"><code>code-filename</code></h2>
-<div class="cell" data-code-filename="capitalize.js" data-include-from="test/snippets/capitalize.js" data-source-lang="javascript" data-execution_count="3">
+<div class="cell" data-add-from="test/snippets/capitalize.js" data-code-filename="capitalize.js" data-source-lang="javascript" data-execution_count="3">
 <details>
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb6"><pre class="sourceCode numberSource javascript number-lines code-with-copy"><code class="sourceCode javascript"><span id="cb6-1"><a href="#cb6-1"></a><span class="kw">function</span> <span class="fu">capitalize</span>(stringToCapitalize) {</span>
@@ -471,7 +471,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 });
 </script><div class="modal fade" id="quarto-embedded-source-code-modal" tabindex="-1" aria-labelledby="quarto-embedded-source-code-modal-label" aria-hidden="true"><div class="modal-dialog modal-dialog-scrollable"><div class="modal-content"><div class="modal-header"><h5 class="modal-title" id="quarto-embedded-source-code-modal-label">Source Code</h5><button class="btn-close" data-bs-dismiss="modal"></button></div><div class="modal-body"><div class="">
 <div class="sourceCode" id="cb7" data-shortcodes="false"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
-<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="an">title:</span><span class="co"> "Include Code Files"</span></span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="an">title:</span><span class="co"> "Add Code Files"</span></span>
 <span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a><span class="an">author:</span><span class="co"> Shafayet Khan Shafee</span></span>
 <span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a><span class="an">date:</span><span class="co"> last-modified</span></span>
 <span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a><span class="an">format:</span></span>
@@ -480,38 +480,38 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <span id="cb7-8"><a href="#cb7-8" aria-hidden="true" tabindex="-1"></a><span class="co">    code-tools: true</span></span>
 <span id="cb7-9"><a href="#cb7-9" aria-hidden="true" tabindex="-1"></a><span class="an">jupyter:</span><span class="co"> python3</span></span>
 <span id="cb7-10"><a href="#cb7-10" aria-hidden="true" tabindex="-1"></a><span class="an">filters:</span></span>
-<span id="cb7-11"><a href="#cb7-11" aria-hidden="true" tabindex="-1"></a><span class="co">  - include-code-files</span></span>
+<span id="cb7-11"><a href="#cb7-11" aria-hidden="true" tabindex="-1"></a><span class="co">  - add-code-files</span></span>
 <span id="cb7-12"><a href="#cb7-12" aria-hidden="true" tabindex="-1"></a><span class="an">execute:</span><span class="co"> </span></span>
 <span id="cb7-13"><a href="#cb7-13" aria-hidden="true" tabindex="-1"></a><span class="co">  echo: true</span></span>
 <span id="cb7-14"><a href="#cb7-14" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
 <span id="cb7-15"><a href="#cb7-15" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb7-16"><a href="#cb7-16" aria-hidden="true" tabindex="-1"></a><span class="at">&gt; DISCLAIMER: The main focus of this extension is to enable </span><span class="in">`code-folding`</span><span class="at"> for code chunk with included content from external files. </span><span class="in">`Show all code`</span><span class="at">, </span><span class="in">`Hide all code`</span><span class="at"> from </span><span class="in">`code-tools`</span><span class="at"> still would not work.</span></span>
+<span id="cb7-16"><a href="#cb7-16" aria-hidden="true" tabindex="-1"></a><span class="at">&gt; DISCLAIMER: The main focus of this extension is to enable </span><span class="in">`code-folding`</span><span class="at"> for code chunk with added content from external files. </span><span class="in">`Show all code`</span><span class="at">, </span><span class="in">`Hide all code`</span><span class="at"> from </span><span class="in">`code-tools`</span><span class="at"> still would not work.</span></span>
 <span id="cb7-17"><a href="#cb7-17" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb7-18"><a href="#cb7-18" aria-hidden="true" tabindex="-1"></a><span class="at">&gt; Note: View the source code of this document by clicking </span><span class="in">`&lt;/&gt; Code`</span><span class="at"> on top-right corner.</span></span>
 <span id="cb7-19"><a href="#cb7-19" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb7-20"><a href="#cb7-20" aria-hidden="true" tabindex="-1"></a>You can include content from external file using either Pandoc Divs <span class="in">`:::`</span> (easier) or using code chunk.</span>
+<span id="cb7-20"><a href="#cb7-20" aria-hidden="true" tabindex="-1"></a>You can add content from external file using either Pandoc Divs <span class="in">`:::`</span> (easier) or using code chunk.</span>
 <span id="cb7-21"><a href="#cb7-21" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb7-22"><a href="#cb7-22" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb7-23"><a href="#cb7-23" aria-hidden="true" tabindex="-1"></a><span class="fu">## Using Pandoc Divs</span></span>
 <span id="cb7-24"><a href="#cb7-24" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb7-25"><a href="#cb7-25" aria-hidden="true" tabindex="-1"></a><span class="fu">### `include-from`</span></span>
+<span id="cb7-25"><a href="#cb7-25" aria-hidden="true" tabindex="-1"></a><span class="fu">### `add-from`</span></span>
 <span id="cb7-26"><a href="#cb7-26" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb7-27"><a href="#cb7-27" aria-hidden="true" tabindex="-1"></a>To include codes using pandoc divs, use the <span class="in">`include-from`</span> attribute to denote the path of the external file, relative to this qmd file. And within that Div, use a codeblock along with the name of the language of the content to be included to get correct syntax highlighting. (You can run <span class="in">`quarto pandoc --list-highlight-languages`</span> to know for which languages, syntax highlighting is supported).</span>
+<span id="cb7-27"><a href="#cb7-27" aria-hidden="true" tabindex="-1"></a>To add codes using pandoc divs, use the <span class="in">`add-from`</span> attribute to denote the path of the external file, relative to this qmd file. And within that Div, use a codeblock along with the name of the language of the content to be added to get correct syntax highlighting. (You can run <span class="in">`quarto pandoc --list-highlight-languages`</span> to know for which languages, syntax highlighting is supported).</span>
 <span id="cb7-28"><a href="#cb7-28" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb7-29"><a href="#cb7-29" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb7-30"><a href="#cb7-30" aria-hidden="true" tabindex="-1"></a>::: {include-from=test/snippets/capitalize.lua}</span>
+<span id="cb7-30"><a href="#cb7-30" aria-hidden="true" tabindex="-1"></a>::: {add-from=test/snippets/capitalize.lua}</span>
 <span id="cb7-31"><a href="#cb7-31" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb7-32"><a href="#cb7-32" aria-hidden="true" tabindex="-1"></a><span class="in">```{.lua}</span></span>
 <span id="cb7-33"><a href="#cb7-33" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
 <span id="cb7-34"><a href="#cb7-34" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb7-35"><a href="#cb7-35" aria-hidden="true" tabindex="-1"></a>:::</span>
 <span id="cb7-36"><a href="#cb7-36" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb7-37"><a href="#cb7-37" aria-hidden="true" tabindex="-1"></a>You can also pass options <span class="in">`start-line`</span>, <span class="in">`end-line`</span> to include a specific range of lines, <span class="in">`code-line-numbers`</span> to enable source code line numbering, <span class="in">`code-filename`</span> or <span class="in">`filename`</span> to show a name of the file the included code is associated with.</span>
+<span id="cb7-37"><a href="#cb7-37" aria-hidden="true" tabindex="-1"></a>You can also pass options <span class="in">`start-line`</span>, <span class="in">`end-line`</span> to add a specific range of lines, <span class="in">`code-line-numbers`</span> to enable source code line numbering, <span class="in">`code-filename`</span> or <span class="in">`filename`</span> to show a name of the file the added code is associated with.</span>
 <span id="cb7-38"><a href="#cb7-38" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb7-39"><a href="#cb7-39" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb7-40"><a href="#cb7-40" aria-hidden="true" tabindex="-1"></a><span class="fu">### `start-line` &amp; `end-line`</span></span>
 <span id="cb7-41"><a href="#cb7-41" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb7-42"><a href="#cb7-42" aria-hidden="true" tabindex="-1"></a>::: {include-from=test/snippets/capitalize.sh start-line=2 end-line=7 code-line-numbers=true}</span>
+<span id="cb7-42"><a href="#cb7-42" aria-hidden="true" tabindex="-1"></a>::: {add-from=test/snippets/capitalize.sh start-line=2 end-line=7 code-line-numbers=true}</span>
 <span id="cb7-43"><a href="#cb7-43" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb7-44"><a href="#cb7-44" aria-hidden="true" tabindex="-1"></a><span class="in">```{.bash}</span></span>
 <span id="cb7-45"><a href="#cb7-45" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
@@ -528,7 +528,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <span id="cb7-56"><a href="#cb7-56" aria-hidden="true" tabindex="-1"></a>Using <span class="in">`filename`</span> does not align properly with <span class="in">`code-folding`</span>. Instead use <span class="in">`code-filename`</span> when using <span class="in">`code-fold: true`</span>.</span>
 <span id="cb7-57"><a href="#cb7-57" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb7-58"><a href="#cb7-58" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb7-59"><a href="#cb7-59" aria-hidden="true" tabindex="-1"></a>::: {include-from=test/snippets/capitalize.pl code-line-numbers="true" code-filename=capitalize.perl}</span>
+<span id="cb7-59"><a href="#cb7-59" aria-hidden="true" tabindex="-1"></a>::: {add-from=test/snippets/capitalize.pl code-line-numbers="true" code-filename=capitalize.perl}</span>
 <span id="cb7-60"><a href="#cb7-60" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb7-61"><a href="#cb7-61" aria-hidden="true" tabindex="-1"></a><span class="in">```{.perl}</span></span>
 <span id="cb7-62"><a href="#cb7-62" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
@@ -540,20 +540,20 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <span id="cb7-68"><a href="#cb7-68" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb7-69"><a href="#cb7-69" aria-hidden="true" tabindex="-1"></a><span class="fu">## Using Code chunk</span></span>
 <span id="cb7-70"><a href="#cb7-70" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb7-71"><a href="#cb7-71" aria-hidden="true" tabindex="-1"></a>Now there is a way to use code chunk instead of pandoc divs to include contents from external file. But there are two things to **note**,</span>
+<span id="cb7-71"><a href="#cb7-71" aria-hidden="true" tabindex="-1"></a>Now there is a way to use code chunk instead of pandoc divs to add contents from external file. But there are two things to **note**,</span>
 <span id="cb7-72"><a href="#cb7-72" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb7-73"><a href="#cb7-73" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Since Quarto so far uses two types rendering engine, <span class="in">`knitr`</span> and <span class="in">`jupyter`</span>, we need to use code chunk accordingly.If you are rendering the quarto document using jupyter along with python kernel use {python} chunk to include code, similary if you are using julia kernel, you need to use {julia} and on the other hand if you are rendering the quarto document using knitr (i.e. engine: knitr) then use {r} chunk to include code, Or to avoid thinking about rendering engine, jupyter or knitr, you also can follow pandoc Div approach described above.</span>
+<span id="cb7-73"><a href="#cb7-73" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Since Quarto so far uses two types rendering engine, <span class="in">`knitr`</span> and <span class="in">`jupyter`</span>, we need to use code chunk accordingly.If you are rendering the quarto document using jupyter along with python kernel use {python} chunk to add code, similary if you are using julia kernel, you need to use {julia} and on the other hand if you are rendering the quarto document using knitr (i.e. engine: knitr) then use {r} chunk to add code, Or to avoid thinking about rendering engine, jupyter or knitr, you also can follow pandoc Div approach described above.</span>
 <span id="cb7-74"><a href="#cb7-74" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb7-75"><a href="#cb7-75" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>You also need to use a chunk option <span class="in">`source-lang`</span> to give the name of the language of the content to be included to get correct syntax highlighting.</span>
+<span id="cb7-75"><a href="#cb7-75" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>You also need to use a chunk option <span class="in">`source-lang`</span> to give the name of the language of the content to be added to get correct syntax highlighting.</span>
 <span id="cb7-76"><a href="#cb7-76" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb7-77"><a href="#cb7-77" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb7-78"><a href="#cb7-78" aria-hidden="true" tabindex="-1"></a><span class="at">&gt; Note: View the source code of this document by clicking </span><span class="in">`&lt;/&gt; Code`</span><span class="at"> on top-right corner to see how code chunk is used.</span></span>
 <span id="cb7-79"><a href="#cb7-79" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb7-80"><a href="#cb7-80" aria-hidden="true" tabindex="-1"></a><span class="fu">## `include-from`</span></span>
+<span id="cb7-80"><a href="#cb7-80" aria-hidden="true" tabindex="-1"></a><span class="fu">## `add-from`</span></span>
 <span id="cb7-81"><a href="#cb7-81" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb7-82"><a href="#cb7-82" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb7-85"><a href="#cb7-85" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
-<span id="cb7-86"><a href="#cb7-86" aria-hidden="true" tabindex="-1"></a><span class="co">#| include-from: test/snippets/example.yml</span></span>
+<span id="cb7-86"><a href="#cb7-86" aria-hidden="true" tabindex="-1"></a><span class="co">#| add-from: test/snippets/example.yml</span></span>
 <span id="cb7-87"><a href="#cb7-87" aria-hidden="true" tabindex="-1"></a><span class="co">#| source-lang: yml</span></span>
 <span id="cb7-88"><a href="#cb7-88" aria-hidden="true" tabindex="-1"></a><span class="co">#| code-filename: "Code snippet: example.yml"</span></span>
 <span id="cb7-89"><a href="#cb7-89" aria-hidden="true" tabindex="-1"></a></span>
@@ -564,11 +564,11 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <span id="cb7-94"><a href="#cb7-94" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb7-95"><a href="#cb7-95" aria-hidden="true" tabindex="-1"></a><span class="fu">## `start-line` &amp; `end-line`</span></span>
 <span id="cb7-96"><a href="#cb7-96" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb7-97"><a href="#cb7-97" aria-hidden="true" tabindex="-1"></a>You can specify from which line to which line you want to include,</span>
+<span id="cb7-97"><a href="#cb7-97" aria-hidden="true" tabindex="-1"></a>You can specify from which line to which line you want to add,</span>
 <span id="cb7-98"><a href="#cb7-98" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb7-99"><a href="#cb7-99" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb7-102"><a href="#cb7-102" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
-<span id="cb7-103"><a href="#cb7-103" aria-hidden="true" tabindex="-1"></a><span class="co">#| include-from: test/snippets/capitalize.scala</span></span>
+<span id="cb7-103"><a href="#cb7-103" aria-hidden="true" tabindex="-1"></a><span class="co">#| add-from: test/snippets/capitalize.scala</span></span>
 <span id="cb7-104"><a href="#cb7-104" aria-hidden="true" tabindex="-1"></a><span class="co">#| source-lang: scala</span></span>
 <span id="cb7-105"><a href="#cb7-105" aria-hidden="true" tabindex="-1"></a><span class="co">#| start-line: 1</span></span>
 <span id="cb7-106"><a href="#cb7-106" aria-hidden="true" tabindex="-1"></a><span class="co">#| end-line: 17</span></span>
@@ -583,7 +583,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <span id="cb7-115"><a href="#cb7-115" aria-hidden="true" tabindex="-1"></a><span class="fu">## `code-filename`</span></span>
 <span id="cb7-116"><a href="#cb7-116" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb7-119"><a href="#cb7-119" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
-<span id="cb7-120"><a href="#cb7-120" aria-hidden="true" tabindex="-1"></a><span class="co">#| include-from: test/snippets/capitalize.js</span></span>
+<span id="cb7-120"><a href="#cb7-120" aria-hidden="true" tabindex="-1"></a><span class="co">#| add-from: test/snippets/capitalize.js</span></span>
 <span id="cb7-121"><a href="#cb7-121" aria-hidden="true" tabindex="-1"></a><span class="co">#| source-lang: javascript</span></span>
 <span id="cb7-122"><a href="#cb7-122" aria-hidden="true" tabindex="-1"></a><span class="co">#| code-line-numbers: true</span></span>
 <span id="cb7-123"><a href="#cb7-123" aria-hidden="true" tabindex="-1"></a><span class="co">#| code-filename: capitalize.js</span></span>
@@ -596,5 +596,5 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 
 
 
-<script src="example_files/libs/quarto-contrib/include-code-files-1.0.0/include-code-files.js"></script>
+<script src="example_files/libs/quarto-contrib/add-code-files-1.0.0/add-code-files.js"></script>
 </body></html>

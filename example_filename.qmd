@@ -1,5 +1,5 @@
 ---
-title: "Include Code Files"
+title: "Add Code Files"
 author: Shafayet Khan Shafee
 date: last-modified
 format: 
@@ -8,7 +8,8 @@ format:
     code-tools: true
 engine: knitr
 filters:
-  - include-code-files
+  - add-code-files
+embed-resources: true
 ---
 
 > Note: View the source code of this document by clicking `</> Code` on top-right corner.
@@ -17,7 +18,7 @@ filters:
 
 Using `filename` does not align properly with `code-folding`.
 
-::: {include-from=test/snippets/fizz-buzz.rs code-line-numbers="true" filename="fizz-buzz.rs"}
+::: {add-from=test/snippets/fizz-buzz.rs code-line-numbers="true" filename="fizz-buzz.rs"}
 
 ```{.rust}
 ```
@@ -29,7 +30,7 @@ Using `filename` does not align properly with `code-folding`.
 
 Instead we can use `code-filename` attribute.
 
-::: {include-from=test/snippets/fizz-buzz.jl code-line-numbers="true" code-filename=fizz-buzz.jl}
+::: {add-from=test/snippets/fizz-buzz.jl code-line-numbers="true" code-filename=fizz-buzz.jl}
 
 ```{.julia}
 ```

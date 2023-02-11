@@ -1,5 +1,5 @@
 ---
-title: "Include Code Files"
+title: "Add Code Files"
 author: Shafayet Khan Shafee
 date: last-modified
 format:
@@ -8,39 +8,40 @@ format:
     code-tools: true
 engine: knitr
 filters:
-  - include-code-files
+  - add-code-files
 execute: 
   echo: true
+embed-resources: true
 ---
 
 
-> DISCLAIMER: The main focus of this extension is to enable `code-folding` for code chunk with included content from external files. `Show all code`, `Hide all code` from `code-tools` still would not work.
+> DISCLAIMER: The main focus of this extension is to enable `code-folding` for code chunk with added content from external files. `Show all code`, `Hide all code` from `code-tools` still would not work.
 
 > Note: View the source code of this document by clicking `</> Code` on top-right corner.
 
-You can include content from external file using either Pandoc Divs `:::` (easier) or using code chunk.
+You can add content from external file using either Pandoc Divs `:::` (easier) or using code chunk.
 
 
 ## Using Pandoc Divs
 
-### `include-from`
+### `add-from`
 
-To include codes using pandoc divs, use the `include-from` attribute to denote the path of the external file, relative to this qmd file. And within that Div, use a codeblock along with the name of the language of the content to be included to get correct syntax highlighting. (You can run `quarto pandoc --list-highlight-languages` to know for which languages, syntax highlighting is supported).
+To add codes using pandoc divs, use the `add-from` attribute to denote the path of the external file, relative to this qmd file. And within that Div, use a codeblock along with the name of the language of the content to be added to get correct syntax highlighting. (You can run `quarto pandoc --list-highlight-languages` to know for which languages, syntax highlighting is supported).
 
 
-::: {include-from=test/snippets/HelloWorld.java}
+::: {add-from=test/snippets/HelloWorld.java}
 
 ```{.java}
 ```
 
 :::
 
-You can also pass options `start-line`, `end-line` to include a specific range of lines, `code-line-numbers` to enable source code line numbering, `code-filename` or `filename` to show a name of the file the included code is associated with.
+You can also pass options `start-line`, `end-line` to add a specific range of lines, `code-line-numbers` to enable source code line numbering, `code-filename` or `filename` to show a name of the file the added code is associated with.
 
 
 ### `start-line` & `end-line`
 
-::: {include-from=test/snippets/HelloWorld.elm start-line=3 end-line=6 code-line-numbers=true}
+::: {add-from=test/snippets/HelloWorld.elm start-line=3 end-line=6 code-line-numbers=true}
 
 ```{.elm}
 ```
@@ -56,7 +57,7 @@ Also We can change the text `Code` to something nicer using `code-filename`.
 Using `filename` does not align properly with `code-folding`. Instead use `code-filename` when using `code-fold: true`.
 
 
-::: {include-from=test/snippets/hello-world.adb code-line-numbers="true" code-filename=hello-world.adb}
+::: {add-from=test/snippets/hello-world.adb code-line-numbers="true" code-filename=hello-world.adb}
 
 ```{.ada}
 ```
@@ -69,20 +70,20 @@ Using `filename` does not align properly with `code-folding`. Instead use `code-
 
 ## Using Code chunk
 
-Now there is a way to use code chunk instead of pandoc divs to include contents from external file. But there are two things to **note**,
+Now there is a way to use code chunk instead of pandoc divs to add contents from external file. But there are two things to **note**,
 
-- Since Quarto so far uses two types rendering engine, `knitr` and `jupyter`, we need to use code chunk accordingly.If you are rendering the quarto document using jupyter along with python kernel use {python} chunk to include code, similary if you are using julia kernel, you need to use {julia} and on the other hand if you are rendering the quarto document using knitr (i.e. engine: knitr) then use {r} chunk to include code, Or to avoid thinking about rendering engine, jupyter or knitr, you also can follow pandoc Div approach described above.
+- Since Quarto so far uses two types rendering engine, `knitr` and `jupyter`, we need to use code chunk accordingly.If you are rendering the quarto document using jupyter along with python kernel use {python} chunk to add code, similary if you are using julia kernel, you need to use {julia} and on the other hand if you are rendering the quarto document using knitr (i.e. engine: knitr) then use {r} chunk to add code, Or to avoid thinking about rendering engine, jupyter or knitr, you also can follow pandoc Div approach described above.
 
-- You also need to use a chunk option `source-lang` to give the name of the language of the content to be included to get correct syntax highlighting.
+- You also need to use a chunk option `source-lang` to give the name of the language of the content to be added to get correct syntax highlighting.
 
 
 > Note: View the source code of this document by clicking `</> Code` on top-right corner to see how code chunk is used.
 
 
-## `include-from`
+## `add-from`
 
 ```{r}
-#| include-from: test/snippets/capitalize.m
+#| add-from: test/snippets/capitalize.m
 #| source-lang: matlab
 #| code-filename: capitalize.m
 
@@ -93,11 +94,11 @@ Now there is a way to use code chunk instead of pandoc divs to include contents 
 
 ## `start-line` & `end-line`
 
-You can specify from which line to which line you want to include,
+You can specify from which line to which line you want to add,
 
 
 ```{r}
-#| include-from: test/snippets/capitalize.ts
+#| add-from: test/snippets/capitalize.ts
 #| source-lang: typescript
 #| start-line: 2
 #| end-line: 6
@@ -114,7 +115,7 @@ Note that, we have used `code-line-numbers: true` to add line numbers in code ch
 
 
 ```{r}
-#| include-from: test/snippets/capitalize.php
+#| add-from: test/snippets/capitalize.php
 #| source-lang: php
 #| code-line-numbers: true
 #| code-filename: capitalize.php
@@ -124,7 +125,7 @@ Note that, we have used `code-line-numbers: true` to add line numbers in code ch
 
 
 ```{r}
-#| include-from: test/snippets/fizz-buzz.rs
+#| add-from: test/snippets/fizz-buzz.rs
 #| source-lang: rust
 #| code-line-numbers: true
 #| code-filename: fizz-buzz.rs
@@ -134,7 +135,7 @@ Note that, we have used `code-line-numbers: true` to add line numbers in code ch
 
 
 ```{r}
-#| include-from: test/snippets/fizz-buzz.jl
+#| add-from: test/snippets/fizz-buzz.jl
 #| source-lang: julia
 #| code-line-numbers: true
 #| code-filename: fizz-buzz.jl
