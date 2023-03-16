@@ -9,7 +9,7 @@ This extension provides filter that to add code from source files.
 :warning: This extension requires quarto version at least to be 1.2.
 
 ```bash
-quarto add shafayetShafe/add-code-files
+quarto add shafayetShafee/add-code-files
 ```
 
 This will install the extension under the `_extensions` subdirectory.
